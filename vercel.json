@@ -1,6 +1,7 @@
 {
   "outputDirectory": "build",
   "routes": [
+    { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/" }
   ]
 }
