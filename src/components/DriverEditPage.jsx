@@ -303,6 +303,66 @@ const DriverEditPage = ({ driver, onBack, onSave }) => {
             </div>
           )}
           <button className="btn-cancel" onClick={onBack}>Cancel</button>
+          {form.status !== 'Active' && form.status !== 'verified' && (
+            <button 
+              className="btn-verify-page" 
+              onClick={async () => {
+                setIsLoading(true);
+                try {
+                  const documentsUpdate = {};
+                  Object.keys(docImages).forEach(key => {
+                    if (docImages[key] !== DEFAULT_DOC_IMAGES[key]) {
+                      documentsUpdate[key] = { url: docImages[key] };
+                    }
+                  });
+                  const updateData = {
+                    fullName: form.fullName,
+                    mobile: form.mobile,
+                    email: form.email,
+                    dob: form.dob,
+                    address: form.address,
+                    state: form.state,
+                    city: form.city,
+                    pincode: form.pincode,
+                    aadharNumber: form.aadharNumber,
+                    panNumber: form.panNumber,
+                    dlNumber: form.dlNumber,
+                    rcNumber: form.rcNumber,
+                    sittingCapacity: form.sittingCapacity || '4 Seater',
+                    status: 'Active',
+                    statusReason: form.statusReason,
+                    supportMethod: form.supportMethod || 'Call',
+                    supportValue: form.supportValue || '',
+                    subscriptionPlan: form.subscriptionPlan || 'Regular',
+                    dutyStatus: form.dutyStatus || 'Offline',
+                    documents: documentsUpdate,
+                    verifyAt: new Date().toISOString()
+                  };
+                  await updateDriver(driver.id, updateData);
+                  onSave({ ...form, status: 'Active', documents: documentsUpdate });
+                } catch (err) {
+                  setError(err.message || 'Failed to verify driver');
+                } finally {
+                  setIsLoading(false);
+                }
+              }}
+              disabled={isLoading}
+              style={{
+                backgroundColor: '#10b981',
+                color: 'white',
+                border: 'none',
+                padding: '10px 20px',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontWeight: '700',
+                fontSize: '14px',
+                marginRight: '12px',
+                transition: 'all 0.2s'
+              }}
+            >
+              Verify Driver ✓
+            </button>
+          )}
           <button className="btn-save-page" onClick={handleSave} disabled={isLoading}>
             {isLoading ? 'Saving...' : 'Save Changes'}
           </button>

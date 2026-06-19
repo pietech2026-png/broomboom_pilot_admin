@@ -306,6 +306,29 @@ const DriverTable = () => {
                         >
                           🗑️
                         </button>
+                        {driver.status !== 'Active' && driver.status !== 'verified' ? (
+                          <button 
+                            className="btn-verify-inline"
+                            onClick={() => handleStatusChangeInline(driver.id, 'Active')}
+                            title="Verify Driver"
+                            style={{
+                              background: '#10b981',
+                              color: 'white',
+                              border: 'none',
+                              padding: '6px 12px',
+                              borderRadius: '6px',
+                              cursor: 'pointer',
+                              fontWeight: '600',
+                              fontSize: '12px',
+                              marginLeft: '4px',
+                              marginRight: '4px'
+                            }}
+                          >
+                            Verify ✓
+                          </button>
+                        ) : (
+                          <span style={{ color: '#10b981', fontWeight: 'bold', fontSize: '12px', marginLeft: '4px', marginRight: '8px' }}>Verified ✓</span>
+                        )}
                         <select
                           className="status-dropdown"
                           value={driver.status}
