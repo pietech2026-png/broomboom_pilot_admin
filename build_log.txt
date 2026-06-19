@@ -1,0 +1,14 @@
+
+> txigo_admin@0.1.0 build
+> vite build
+
+vite v8.0.10 building client environment for production...
+[2Ktransforming...✓ 107 modules transformed.
+rendering chunks...
+computing gzip size...
+build/index.html                       0.74 kB │ gzip:   0.40 kB
+build/assets/index-CWhgekiB.css       43.53 kB │ gzip:   8.43 kB
+build/assets/web-vitals-D1_yGYeY.js    4.34 kB │ gzip:   1.70 kB
+build/assets/index-BW_KZB-2.js       371.04 kB │ gzip: 108.20 kB
+
+✓ built in 868ms

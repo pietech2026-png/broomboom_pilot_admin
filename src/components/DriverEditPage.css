@@ -1,0 +1,351 @@
+/* ── Main Layout ── */
+.edit-page-container {
+  padding: 24px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.edit-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.edit-page-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.edit-page-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.edit-page-subtitle {
+  color: #64748b;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* ── Section Cards ── */
+.edit-section-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.edit-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 12px;
+}
+
+.edit-doc-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  margin: 16px 0 12px 0;
+}
+
+/* ── Form Grids ── */
+.edit-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.edit-field-full {
+  grid-column: 1 / -1;
+}
+
+.edit-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+/* ── Notification Bell (Top Right) ── */
+.notification-bell-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.notification-bell-btn {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.notification-bell-btn:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+  transform: translateY(-1px);
+}
+
+.notification-bell-btn.has-unread {
+  background: #fee2e2;
+  color: #ef4444;
+  border-color: #fecaca;
+  animation: ring 2s ease infinite;
+}
+
+.unread-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  background: #ef4444;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+/* ── Popup / Tooltip (Top Right Positioned) ── */
+.plan-change-popup {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 1000;
+  width: 280px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  animation: slideDownFade 0.2s ease-out;
+}
+
+.popup-arrow {
+  position: absolute;
+  top: -6px;
+  right: 14px;
+  width: 12px;
+  height: 12px;
+  background: white;
+  transform: rotate(45deg);
+  border-top: 1px solid #e2e8f0;
+  border-left: 1px solid #e2e8f0;
+}
+
+.popup-content {
+  padding: 16px;
+}
+
+.popup-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.popup-icon { font-size: 18px; }
+
+.popup-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.popup-body {
+  font-size: 13px;
+  color: #1e293b;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.plan-name {
+  color: #ca8a04;
+  font-weight: 700;
+}
+
+.popup-footer {
+  font-size: 11px;
+  color: #94a3b8;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 8px;
+  font-weight: 500;
+}
+
+/* ── Form Inputs ── */
+.edit-field input, .edit-field select, .edit-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1e293b;
+  transition: border-color 0.15s;
+}
+
+.edit-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.edit-field input:focus, .edit-field select:focus, .edit-textarea:focus {
+  outline: none;
+  border-color: #ca8a04;
+  box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.1);
+}
+
+/* ── Unified Document Cards ── */
+.doc-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.doc-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.doc-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+.doc-card-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10; 
+  background: #f1f5f9;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.doc-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Buttons ── */
+.btn-save-page {
+  background: #ca8a04;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-save-page:hover { background: #a16207; }
+
+.btn-cancel {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #475569;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  margin-bottom: 4px;
+}
+
+/* ── Animations ── */
+@keyframes ring {
+  0% { transform: rotate(0); }
+  10% { transform: rotate(15deg); }
+  20% { transform: rotate(-10deg); }
+  30% { transform: rotate(5deg); }
+  40% { transform: rotate(-5deg); }
+  50% { transform: rotate(0); }
+  100% { transform: rotate(0); }
+}
+
+@keyframes slideDownFade {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.error-banner {
+  background-color: #fee2e2;
+  color: #ef4444;
+  border: 1px solid #fecaca;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.lightbox-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(15, 23, 42, 0.85);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(8px);
+}
+
+.pdf-thumbnail {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.pdf-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.pdf-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.lightbox-pdf-viewer {
+  width: 100%;
+  height: 70vh;
+  border: none;
+  border-radius: 4px;
+}

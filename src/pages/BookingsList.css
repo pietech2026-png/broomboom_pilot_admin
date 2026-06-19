@@ -1,0 +1,249 @@
+.bookings-list-page {
+  padding: 1.5rem;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+.list-header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.title-group-refined {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-title-refined {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.page-subtitle-refined {
+  color: #64748b;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* Booking Tabs */
+.booking-tabs-nav {
+  display: flex;
+  background: #f1f5f9;
+  padding: 0.25rem;
+  border-radius: 0.6rem;
+  border: 1px solid #e2e8f0;
+}
+
+.booking-tab-btn {
+  padding: 0.5rem 1.25rem;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  transition: all 0.2s;
+}
+
+.booking-tab-btn.active {
+  background: white;
+  color: #ca8a04;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Controls */
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.75rem 0.75rem 0 0;
+  border: 1px solid #e2e8f0;
+  border-bottom: none;
+}
+
+.entries-control {
+  font-size: 0.85rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-control-refined input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  min-width: 300px;
+  font-size: 0.85rem;
+}
+
+/* Table */
+.bookings-table-container {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0 0 0.75rem 0.75rem;
+  overflow: hidden;
+}
+
+.bookings-data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bookings-data-table th {
+  padding: 0.75rem 1rem;
+  background: #f8fafc;
+  color: #64748b;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-align: left;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.bookings-data-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.85rem;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.order-id { 
+  font-weight: 700; 
+  color: #ca8a04; 
+  font-family: monospace; 
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.restricted-badge-mini {
+  background-color: #fef2f2;
+  color: #ef4444;
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #fee2e2;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.route-info { display: flex; flex-direction: column; gap: 0.2rem; }
+.route-info .pickup { color: #0f172a; font-weight: 600; }
+.route-info .arrow { color: #94a3b8; font-size: 0.7rem; }
+.route-info .drop { color: #64748b; }
+
+.service-info-cell { display: flex; flex-direction: column; }
+.service-info-cell .main-type { font-weight: 700; color: #1e293b; }
+.service-info-cell .sub-type { font-size: 0.75rem; color: #94a3b8; }
+
+.status-pill {
+    padding: 0.25rem 0.6rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+.status-pending { background: #fff7ed; color: #c2410c; }
+.status-confirmed { background: #dcfce7; color: #15803d; }
+.status-completed { background: #f0f9ff; color: #0369a1; }
+.status-cancelled { background: #fef2f2; color: #b91c1c; }
+
+/* Action Buttons */
+.action-cell-refined { width: 160px; min-width: 160px; }
+.btn-group-actions { display: flex; gap: 0.4rem; justify-content: flex-start; }
+
+.btn-icon-action {
+  padding: 0.2rem 0.5rem;
+  min-width: 2rem;
+  height: 2.2rem;
+  width: auto;
+  border-radius: 0.4rem;
+  border: 1px solid #e2e8f0;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.btn-label-internal {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.btn-icon-action:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+.btn-icon-action.view:hover { border-color: #ca8a04; background: #fef9c3; }
+.btn-icon-action.history:hover { border-color: #6366f1; background: #eef2ff; }
+.btn-icon-action.accept:hover { border-color: #10b981; background: #ecfdf5; }
+.btn-icon-action.cancel:hover { border-color: #ef4444; background: #fef2f2; }
+
+/* Modals */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.confirmation-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-icon { font-size: 3rem; margin-bottom: 1rem; }
+.modal-title { font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; }
+.modal-text { color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.5; }
+
+.modal-actions { display: flex; gap: 1rem; }
+.btn-cancel { flex: 1; padding: 0.6rem; border-radius: 0.5rem; border: 1px solid #e2e8f0; background: white; font-weight: 700; cursor: pointer; }
+.btn-confirm-refined { flex: 1; padding: 0.6rem; border-radius: 0.5rem; border: none; color: white; font-weight: 700; cursor: pointer; }
+.btn-confirm-refined.accept { background: #10b981; }
+.btn-confirm-refined.cancel { background: #ef4444; }
+
+.pagination-info { font-size: 0.8rem; color: #94a3b8; }
+.pagination-btns { display: flex; gap: 0.25rem; }
+.page-btn { padding: 0.4rem 0.8rem; border-radius: 0.4rem; border: 1px solid #e2e8f0; background: white; font-size: 0.8rem; cursor: pointer; }
+.page-btn.active { background: #ca8a04; color: white; border-color: #ca8a04; }
+
+/* Animations */
+.anim-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
