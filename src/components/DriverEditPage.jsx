@@ -83,7 +83,7 @@ const DocCard = ({ docKey, label, imageUrl, isPlaceholder, isUploading, onPrevie
         }}
         disabled={isUploading}
       >
-        {isUploading ? 'Uploading...' : (!isPlaceholder ? 'Uploaded ✓' : 'Missing ✗')}
+        {isUploading ? 'Uploading...' : (!isPlaceholder ? 'Update Image ↻' : 'Missing ✗')}
       </button>
     </div>
   </div>

@@ -15,7 +15,7 @@ const Sidebar = ({ onLogout }) => {
         </div>
         <div className="brand-text">
           <div className="brand-title">Broom</div>
-          <div className="brand-subtitle">Boom<span className="brand-admin">Admin</span></div>
+          <div className="brand-subtitle">Boom<span className="brand-admin">Pilot</span></div>
         </div>
       </div>
       

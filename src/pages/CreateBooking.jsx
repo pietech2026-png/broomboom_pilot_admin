@@ -83,6 +83,7 @@ const CreateBooking = () => {
   const fetchAvailableDrivers = async () => {
     if (!booking.allocateOurPilot) return;
     setIsFetchingDrivers(true);
+    console.log('DEBUG [CreateBooking]: Fetching pilots with state:', booking.state, 'search:', pilotSearchTerm);
     try {
       const filters = {
         search: pilotSearchTerm,
@@ -90,6 +91,7 @@ const CreateBooking = () => {
         limit: 100 // Limit for better performance in dropdown
       };
       const data = await getDrivers(filters);
+      console.log('DEBUG [CreateBooking]: Received pilots:', data.drivers);
       setAvailableDrivers(data.drivers || []);
     } catch (err) {
       console.error('Error fetching drivers:', err);
@@ -142,6 +144,20 @@ const CreateBooking = () => {
         text: `The following fields are missing: ${missingFields.join(', ')}`, 
         type: 'error' 
       });
+      return;
+    }
+
+    // Block past days bookings
+    const pickupDate = new Date(booking.pickupDateTime);
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const selectedDate = new Date(pickupDate.getFullYear(), pickupDate.getMonth(), pickupDate.getDate());
+    if (selectedDate < today) {
+      setMessage({ 
+        text: 'Past days bookings cannot be made.', 
+        type: 'error' 
+      });
+      alert('Past days bookings cannot be made.');
       return;
     }
 
@@ -476,8 +492,21 @@ const CreateBooking = () => {
           {booking.allocateOurPilot && (
             <div className="pilot-selection-area anim-fade-in">
               <div className="pilot-selection-header">
-                <h3 className="sub-section-title">Select Specific Pilots</h3>
-                <div className="pilot-selection-actions">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <h3 className="sub-section-title">Select Specific Pilots</h3>
+                  <span className="filter-hint-text" style={{ fontSize: '12px', color: '#666' }}>
+                    Filtering by State: <strong>{booking.state || 'All States'}</strong>
+                  </span>
+                </div>
+                <div className="pilot-selection-actions" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <button 
+                    type="button"
+                    className="btn-select-all"
+                    onClick={fetchAvailableDrivers}
+                    style={{ backgroundColor: '#f3f4f6', color: '#374151', border: '1px solid #d1d5db', padding: '6px 12px', borderRadius: '6px', cursor: 'pointer' }}
+                  >
+                    ↻ Refresh List
+                  </button>
                   <button 
                     type="button" 
                     className="btn-select-all"

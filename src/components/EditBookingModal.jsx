@@ -57,11 +57,32 @@ const EditBookingModal = ({ booking, onClose, onSave }) => {
   };
 
   useEffect(() => {
-    setFormData({ ...booking });
+    setFormData({ 
+      ...booking,
+      userName: booking.customerName || '',
+      userEmail: booking.customerEmail || '',
+      mobileNumber: booking.customerMobile || '',
+      bookingType: booking.serviceType || '',
+      pickupDateTime: booking.pickupTime || '',
+      returnTime: booking.returnTime || '',
+      state: booking.state || '',
+      pincode: booking.pincode || '',
+      distance: booking.distance || '',
+      totalFare: booking.fare || '',
+      advancedAmount: booking.advance || '',
+      pilotShare: booking.pilotShare || '',
+      eligiblePilots: booking.eligiblePilots || [],
+      bookingStatus: booking.status || 'Pending',
+      allocateOurPilot: booking.allocateOurPilot || false
+    });
     // Also sync pilot search defaults when booking changes
     if (booking.state) setPilotStateFilter(booking.state);
     if (booking.seater) setSelectedSeater(booking.seater);
   }, [booking]);
+
+  useEffect(() => {
+    setPilotStateFilter(formData.state || '');
+  }, [formData.state]);
 
   useEffect(() => {
     // Initial fetch of drivers and state list
@@ -488,7 +509,7 @@ const EditBookingModal = ({ booking, onClose, onSave }) => {
                     </div>
                   )}
                   <div className="edit-input-field">
-                    <label>Driver Status</label>
+                    <label>Booking Status</label>
                     <select value={formData.bookingStatus} onChange={(e) => handleChange('bookingStatus', e.target.value)}>
                       <option value="Pending">Pending</option>
                       <option value="Confirmed">Confirmed</option>

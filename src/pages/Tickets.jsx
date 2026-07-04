@@ -176,7 +176,26 @@ const Tickets = () => {
                     <small style={{ color: '#94a3b8' }}>{new Date(ticket.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</small>
                   </td>
                   <td>
-                    <div className="action-cell">
+                    <div className="action-cell" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <button 
+                        className="btn-action-view" 
+                        onClick={() => setSelectedTicket(ticket)}
+                        style={{
+                          backgroundColor: '#3b82f6',
+                          color: 'white',
+                          border: 'none',
+                          padding: '5px 10px',
+                          borderRadius: '4px',
+                          cursor: 'pointer',
+                          fontSize: '12px',
+                          fontWeight: '600',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}
+                      >
+                        View
+                      </button>
                       <select 
                         className="status-dropdown-inline"
                         value={ticket.status}
