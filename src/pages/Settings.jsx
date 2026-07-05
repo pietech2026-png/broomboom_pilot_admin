@@ -24,8 +24,8 @@ const Settings = () => {
   const fetchSettings = async () => {
     setLoading(true);
     try {
-      // Fetch from the pilot backend (under /vehicles/settings)
-      const response = await apiClient.get('/vehicles/settings');
+      // Fetch from the pilot backend (under /admin/vehicles/settings)
+      const response = await apiClient.get('/admin/vehicles/settings');
       const settings = response.data || [];
       const advanceOpt = settings.find(s => s.key === 'pay_advance_options');
       if (advanceOpt && Array.isArray(advanceOpt.value)) {
@@ -67,7 +67,7 @@ const Settings = () => {
       };
 
       // 1. Save to Pilot Backend
-      await apiClient.post('/vehicles/settings', payload);
+      await apiClient.post('/admin/vehicles/settings', payload);
 
       // 2. Save to User Backend (Public route on user backend)
       try {
