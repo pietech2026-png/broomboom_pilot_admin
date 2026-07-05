@@ -14,7 +14,7 @@ const EditBookingModal = ({ booking, onClose, onSave }) => {
   const [availableDrivers, setAvailableDrivers] = useState([]);
   const [pilotSearchTerm, setPilotSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedSeater, setSelectedSeater] = useState(booking.seater || '');
+  const [selectedSeater, setSelectedSeater] = useState('');
   const [selectedPlan, setSelectedPlan] = useState('');
   const [isFetchingDrivers, setIsFetchingDrivers] = useState(false);
   const [allStates, setAllStates] = useState([]);
@@ -80,7 +80,6 @@ const EditBookingModal = ({ booking, onClose, onSave }) => {
       });
       // Also sync pilot search defaults when booking changes
       if (booking.state) setPilotStateFilter(booking.state);
-      if (booking.seater) setSelectedSeater(booking.seater);
     }
   }, [booking]);
 
