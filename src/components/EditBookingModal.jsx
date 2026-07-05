@@ -57,27 +57,29 @@ const EditBookingModal = ({ booking, onClose, onSave }) => {
   };
 
   useEffect(() => {
-    setFormData({ 
-      ...booking,
-      userName: booking.customerName || '',
-      userEmail: booking.customerEmail || '',
-      mobileNumber: booking.customerMobile || '',
-      bookingType: booking.serviceType || '',
-      pickupDateTime: booking.pickupTime || '',
-      returnTime: booking.returnTime || '',
-      state: booking.state || '',
-      pincode: booking.pincode || '',
-      distance: booking.distance || '',
-      totalFare: booking.fare || '',
-      advancedAmount: booking.advance || '',
-      pilotShare: booking.pilotShare || '',
-      eligiblePilots: booking.eligiblePilots || [],
-      bookingStatus: booking.status || 'Pending',
-      allocateOurPilot: booking.allocateOurPilot || false
-    });
-    // Also sync pilot search defaults when booking changes
-    if (booking.state) setPilotStateFilter(booking.state);
-    if (booking.seater) setSelectedSeater(booking.seater);
+    if (booking) {
+      setFormData({ 
+        ...booking,
+        userName: booking.userName || booking.customerName || '',
+        userEmail: booking.userEmail || booking.customerEmail || '',
+        mobileNumber: booking.mobileNumber || booking.customerMobile || '',
+        bookingType: booking.bookingType || booking.serviceType || '',
+        pickupDateTime: booking.pickupDateTime || booking.pickupTime || '',
+        returnTime: booking.returnTime || '',
+        state: booking.state || '',
+        pincode: booking.pincode || '',
+        distance: booking.distance || '',
+        totalFare: booking.totalFare || booking.fare || '',
+        advancedAmount: booking.advancedAmount || booking.advance || '',
+        pilotShare: booking.pilotShare || '',
+        eligiblePilots: booking.eligiblePilots || [],
+        bookingStatus: booking.bookingStatus || booking.status || 'Pending',
+        allocateOurPilot: booking.allocateOurPilot || false
+      });
+      // Also sync pilot search defaults when booking changes
+      if (booking.state) setPilotStateFilter(booking.state);
+      if (booking.seater) setSelectedSeater(booking.seater);
+    }
   }, [booking]);
 
   useEffect(() => {
