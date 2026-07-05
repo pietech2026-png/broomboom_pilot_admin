@@ -45,7 +45,8 @@ const mapToBackend = (data) => {
         nightAllowance: Number(data.driverNightAllowance) || 0,
         toll: Number(data.tollCharges) || 0,
         extraKm: Number(data.extraKm) || 0,
-        extraHour: Number(data.extraHour) || 0
+        extraHour: Number(data.extraHour) || 0,
+        waitingCharge: Number(data.waitingCharge) || 0
       }
     },
     eligiblePilots: data.eligiblePilots || [],

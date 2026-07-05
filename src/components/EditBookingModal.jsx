@@ -72,6 +72,8 @@ const EditBookingModal = ({ booking, onClose, onSave }) => {
         totalFare: booking.totalFare || booking.fare || '',
         advancedAmount: booking.advancedAmount || booking.advance || '',
         pilotShare: booking.pilotShare || '',
+        companyShare: booking.companyShare || '',
+        waitingCharge: booking.waitingCharge || '',
         eligiblePilots: booking.eligiblePilots || [],
         bookingStatus: booking.bookingStatus || booking.status || 'Pending',
         allocateOurPilot: booking.allocateOurPilot || false
