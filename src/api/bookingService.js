@@ -39,14 +39,14 @@ const mapToBackend = (data) => {
       distance: Number(data.distance) || 0,
       totalFare: Number(data.totalFare) || 0,
       advancedAmount: Number(data.advancedAmount) || 0,
-      pilotShare: Number(data.pilotShare) || 0,
-      companyShare: Number(data.companyShare) || 0,
+      pilotShare: data.pilotShare,
+      companyShare: data.companyShare,
       extraCharges: {
         nightAllowance: Number(data.driverNightAllowance) || 0,
         toll: Number(data.tollCharges) || 0,
         extraKm: Number(data.extraKm) || 0,
-        extraHour: Number(data.extraHour) || 0,
-        waitingCharge: Number(data.waitingCharge) || 0
+        extraHour: data.extraHour,
+        waitingCharge: data.waitingCharge
       }
     },
     eligiblePilots: data.eligiblePilots || [],
@@ -82,15 +82,15 @@ const mapFromBackend = (item) => {
     carType: item.vehicle?.carModel || '',
     seater: item.vehicle?.seater || '4',
     ac: item.vehicle?.isAC ? 'AC' : 'Non-AC',
-    driverNightAllowance: item.pricing?.extraCharges?.nightAllowance || '',
-    tollCharges: item.pricing?.extraCharges?.toll || 'Excluded',
-    extraKm: item.pricing?.extraCharges?.extraKm || '',
-    extraHour: item.pricing?.extraCharges?.extraHour || '',
-    waitingCharge: item.pricing?.extraCharges?.waitingCharge || '',
-    totalFare: item.pricing?.totalFare || '',
-    advancedAmount: item.pricing?.advancedAmount || '',
-    pilotShare: item.pricing?.pilotShare || '',
-    companyShare: item.pricing?.companyShare || '',
+    driverNightAllowance: item.pricing?.extraCharges?.nightAllowance !== undefined && item.pricing?.extraCharges?.nightAllowance !== null ? item.pricing.extraCharges.nightAllowance : '',
+    tollCharges: item.pricing?.extraCharges?.toll !== undefined && item.pricing?.extraCharges?.toll !== null ? item.pricing.extraCharges.toll : 'Excluded',
+    extraKm: item.pricing?.extraCharges?.extraKm !== undefined && item.pricing?.extraCharges?.extraKm !== null ? item.pricing.extraCharges.extraKm : '',
+    extraHour: item.pricing?.extraCharges?.extraHour !== undefined && item.pricing?.extraCharges?.extraHour !== null ? item.pricing.extraCharges.extraHour : '',
+    waitingCharge: item.pricing?.extraCharges?.waitingCharge !== undefined && item.pricing?.extraCharges?.waitingCharge !== null ? item.pricing.extraCharges.waitingCharge : '',
+    totalFare: item.pricing?.totalFare !== undefined && item.pricing?.totalFare !== null ? item.pricing.totalFare : '',
+    advancedAmount: item.pricing?.advancedAmount !== undefined && item.pricing?.advancedAmount !== null ? item.pricing.advancedAmount : '',
+    pilotShare: item.pricing?.pilotShare !== undefined && item.pricing?.pilotShare !== null ? item.pricing.pilotShare : '',
+    companyShare: item.pricing?.companyShare !== undefined && item.pricing?.companyShare !== null ? item.pricing.companyShare : '',
     allocateOurPilot: item.isOwnPilotAllocated || false,
     
     // New Nested Pilot Data
